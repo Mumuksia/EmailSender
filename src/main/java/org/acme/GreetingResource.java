@@ -26,7 +26,7 @@ public class GreetingResource {
     }
 
     @GET
-    @Path("/send/{body}")
+    @Path("/send/{body}/{to}")
     public Response sendASimpleEmail(@PathParam("body") String body, @PathParam("to") String to) {
         mailer.send(Mail.withText(to, "A simple email from quarkus", body));
         return Response.accepted().build();
